@@ -8,6 +8,10 @@ exports.getuserSignin = (req, res, next) =>{
   res.render('signin');
 }
 
+exports.getuserSignup = (req, res, next) =>{
+  res.render('signup');
+}
+
 exports.postuserSignup = async(req, res, next) =>{
 
            const isUserExist = await User.findOne({email: req.body.email});
