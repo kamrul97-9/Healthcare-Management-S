@@ -13,9 +13,8 @@ exports.getHomePage = async(req,res, next) =>{
   try {
       // const userId = req.params.userId;
       // const user = await User.findById(userId);
-      // console.log(user);
-      // res.render("home", {home : user});
-      res.render('home');
+      const user = await User.find({ userId: req.params.userId });
+      console.log(user);
   } catch (error) {
     console.log(error);
   }

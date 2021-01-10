@@ -19,6 +19,8 @@ exports.postuserSignup = async(req, res, next) =>{
            const user = new User({
                  name: req.body.name,
                  email: req.body.email,
+                 age: req.body.age,
+                 address: req.body.address,
                  //password: md5(req.body.pass),
                  password: hash
            });
