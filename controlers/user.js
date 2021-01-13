@@ -11,13 +11,17 @@ exports.getRegisterPage = (req, res, next) => {
 
 exports.getUserHomePage = async(req, res, next) => {
   try {
-    const userid = await User.find({ userId: req.params.userId });
-    console.log(`From getUserHomePage --> ${userid}`);
-    res.render('home',{userid});
+    let {userId} = req.params;
+    console.log(userId);
+    const user = await User.findById(userId);
+    console.log(`From getUserHomePage --> ${user}`);
+    res.render('home',{user:user});
+    //return res.json(user);
   } catch (error) {
     console.log(error.message);
   }
 };
+
 
 exports.getHomePage = async(req,res, next) =>{
   try {

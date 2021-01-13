@@ -28,13 +28,8 @@ exports.postuserSignup = async(req, res, next) =>{
                  //password: md5(req.body.pass),
                  password: hash
            });
-           user.save(function(error){
-             if(error) {
-                 console.log(error);
-             } else{
-                 res.redirect("/home");
-             };
-         });
+           const saveUser = await user.save();
+           res.redirect(`/home/${saveUser._id}`);
        });
      };
 
@@ -52,7 +47,7 @@ exports.postuserSignin = async(req, res, next) =>{
         console.log("Error: username or password is not valid");
         return res.redirect("back");
       } else {
-        res.redirect("/home");
+        res.redirect(`/home/${user._id}`);
       };
 }
 
