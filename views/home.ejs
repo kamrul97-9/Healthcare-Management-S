@@ -1,27 +1,30 @@
 <%- include('partials/navbar'); -%>
 
-<div class="container">
+<div class="container" style="text-align:center;">
     <div class="logo">
       <img class="rounded-circle" src="logo/medical-logo.jpg" alt="MediTeam" height="250" width="250">
     </div>
     <section class="first">
-      <h3>Patiens Details</h3>
+      <h3>Patient Details</h3>
           <ul class="list-group">
               <li class="list-group-item active">Name: <%=user.name%></li>
-              <li class="list-group-item list-group-item-info">Email: <%=user.email%></ </li>
-              <li class="list-group-item list-group-item-warning">Age: <%=user.age%></</li>
-              <li class="list-group-item list-group-item-success">Address: <%=user.address%></</li>
+              <li class="list-group-item list-group-item-info">Email: <%=user.email%></li>
+              <li class="list-group-item list-group-item-warning">Age: <%=user.age%></li>
+              <li class="list-group-item list-group-item-success">Address: <%=user.address%></li>
           </ul>
     </section>
     <section class="second">
       <div class="row">
         <div class="col-md-6">
-          <img class="rounded-circle" src="logo/heartrate.jpg" alt="heartrate" height="110" width="110">
           <p class="fp">Heart Rate</p>
+          <p class="value">99</p>
+          <img class="rounded-circle" src="logo/heartrate.jpg" alt="heartrate" height="110" width="110">
+
         </div>
         <div class="col-md-6">
+          <p class="sc">Body Temperature</p>
+          <p class="value">37<span> &#8451;</span></p>
           <img class="rounded-circle" src="logo/thermo.jpg" alt="thermometerer" height="120" width="120">
-          <p>Body Temperature</p>
         </div>
       </div>
     </section>

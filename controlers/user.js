@@ -25,9 +25,7 @@ exports.getUserHomePage = async(req, res, next) => {
 
 exports.getHomePage = async(req,res, next) =>{
   try {
-      const userId = req.params.userId;
-      const user = await User.find(userId);
-      // const user = await User.find({ userId: req.params.userId });
+      const user = await User.find({ userId: req.params.userId });
       //console.log(`From getHomePage --> ${user}`);
       //await user.save();
       res.render('home',{home: user});

@@ -13,25 +13,28 @@ exports.getuserSignup = (req, res, next) =>{
 }
 
 exports.postuserSignup = async(req, res, next) =>{
-
-           const isUserExist = await User.findOne({email: req.body.email});
-           if(isUserExist){
-               console.log("User with this credintial already exists.");
-               return res.redirect("back");
-           };
-         bcrypt.hash(req.body.password, saltRounds, async(error, hash) =>{
-           const user = new User({
-                 name: req.body.name,
-                 email: req.body.email,
-                 age: req.body.age,
-                 address: req.body.address,
-                 //password: md5(req.body.pass),
-                 password: hash
-           });
-           const saveUser = await user.save();
-           res.redirect(`/home/${saveUser._id}`);
-       });
-     };
+      try {
+        const isUserExist = await User.findOne({email: req.body.email});
+        if(isUserExist){
+            console.log("User with this credintial already exists.");
+            return res.redirect("back");
+        };
+      bcrypt.hash(req.body.password, saltRounds, async(error, hash) =>{
+        const user = new User({
+              name: req.body.name,
+              email: req.body.email,
+              age: req.body.age,
+              address: req.body.address,
+              //password: md5(req.body.pass),
+              password: hash
+        });
+        const saveUser = await user.save();
+        res.redirect(`/home/${saveUser._id}`);
+    });
+      } catch (error) {
+        console.log(error.message);
+      }
+  };
 
 exports.postuserSignin = async(req, res, next) =>{
 
