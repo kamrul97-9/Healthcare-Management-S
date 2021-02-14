@@ -33,3 +33,15 @@ exports.getHomePage = async(req,res, next) =>{
     console.log(error);
   }
 };
+
+
+exports.getData = async(req, res, next) =>{
+  try {
+    const date = new Date();
+    console.log(date);
+    // let{temp, time} = req.query;
+    // time = new Date;
+  } catch (error) {
+    console.log(error);
+  }
+}

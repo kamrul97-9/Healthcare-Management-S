@@ -10,4 +10,7 @@ router.get("/register", userControllers.getRegisterPage);
 
 router.get("/home", userControllers.getHomePage)
 router.get("/home/:userId", userControllers.getUserHomePage);
+
+router.get("/home/:userId", userControllers.getData)
+
 module.exports = router;
